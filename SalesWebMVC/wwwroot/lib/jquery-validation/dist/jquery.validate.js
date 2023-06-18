@@ -1444,7 +1444,8 @@ $.extend( $.validator, {
 
 		// https://jqueryvalidation.org/range-method/
 		range: function( value, element, param ) {
-			return this.optional( element ) || ( value >= param[ 0 ] && value <= param[ 1 ] );
+			var globalizedValue = value.replace(".", "").replace(",", ".");
+            return this.optional(element) || (globalizedValue >= param[0] && globalizedValue <= param[1]);
 		},
 
 		// https://jqueryvalidation.org/step-method/
